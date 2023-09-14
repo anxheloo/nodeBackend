@@ -9,10 +9,10 @@ const OrderSchema = new mongoose.Schema(
       ref: "Product",
     },
     quantity: { type: Number, requred: true },
-    subtotal: { type: String, required: true },
+    subtotal: { type: Number, required: true },
     total: { type: Number, required: true },
     delivery_status: { type: Number, default: "pending" },
-    payment_status: { type: "String", required: true },
+    payment_status: { type: String, required: true },
   },
   { timestamps: true }
 );
