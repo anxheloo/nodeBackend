@@ -8,7 +8,7 @@ module.exports = {
       const userOrders = await Order.find({ userId })
         .populate({
           path: "productId",
-          select: "-description product_location",
+          select: "-description -product_location",
         })
         .exec();
 
