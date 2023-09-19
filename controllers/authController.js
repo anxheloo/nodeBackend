@@ -47,7 +47,7 @@ module.exports = {
         {
           id: user.id,
         },
-        process.env.JWT_SEC,
+        process.env.SECRET,
         { expiresIn: "7d" }
       );
 
@@ -56,6 +56,7 @@ module.exports = {
       res.status(200).json({ ...userData, token: userToken });
     } catch (error) {
       res.status(500).json({ message: error });
+      console.log(error);
     }
   },
 };
