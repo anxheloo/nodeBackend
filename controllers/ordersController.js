@@ -2,7 +2,9 @@ const Order = require("../models/Order");
 
 module.exports = {
   getUserOrders: async (req, res) => {
-    const userId = req.params.id;
+    const userId = req.user.id;
+
+    console.log("THIS IS userID: ", userId);
 
     try {
       const userOrders = await Order.find({ userId })
@@ -11,6 +13,8 @@ module.exports = {
           select: "-description -product_location",
         })
         .exec();
+
+      console.log("THIS IS userOrders: ", userOrders);
 
       res.status(200).json(userOrders);
     } catch (error) {
